@@ -52,7 +52,7 @@ class MilvusVectorSave:
         bm25_function = Function(
             name = "text_bm25_emb",
             input_field_names=["text"], # # 需要进行文本到稀疏向量转换的 VARCHAR 字段名称。对于 FunctionType.BM25 ，此参数仅接受一个字段名称。
-            output_field_names=["sparse"], # # 存储内部生成稀疏向量的字段名称。对于 FunctionType.BM25 ，此参数仅接受一个字段名。
+            output_field_names=["sparse"], # # 存储内部BM25分析器生成稀疏向量的字段名称。对于 FunctionType.BM25 ，此参数仅接受一个字段名。
             function_type=FunctionType.BM25 # # 要使用的函数类型。将该值设置为 FunctionType.BM25
         )
         schema.add_function(bm25_function)
